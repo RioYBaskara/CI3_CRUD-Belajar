@@ -9,7 +9,7 @@ class Mahasiswa_model extends CI_Model
         return $this->db->get('mahasiswa')->result_array();
     }
 
-    // Create Tambah Data Mahasiswa 
+    // Create Tambah Data Tabel Mahasiswa 
     public function tambahDataMahasiswa()
     {
         $data = [
@@ -20,5 +20,13 @@ class Mahasiswa_model extends CI_Model
         ];
         // *insert/create tabel mahasiswa
         $this->db->insert("mahasiswa", $data);
+    }
+
+    // Destroy Data Tabel Mahasiswa per id/parameter id
+    public function hapusDataMahasiswa($id)
+    {
+        // query delete berdasarkan id dari parameter $id
+        $this->db->where("id", $id);
+        $this->db->delete("mahasiswa");
     }
 }

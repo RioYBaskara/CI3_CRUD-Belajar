@@ -38,7 +38,7 @@ class Mahasiswa extends CI_Controller
         $this->form_validation->set_rules("nrp", "NRP", "required|numeric");
         $this->form_validation->set_rules("email", "Email", "required|valid_email");
 
-        // Pengkondisian form_validation, jika input salah, kembali ke view form input. jika input benar, menjalankan query untuk menambahkan data ke tabel mahasiswa
+        // CREATE || Pengkondisian form_validation, jika input salah, kembali ke view form input. jika input benar, menjalankan query untuk menambahkan data ke tabel mahasiswa lalu redirect dengan session, flashdata
         if ($this->form_validation->run() == FALSE) {
             $this->load->view("templates/header", $data);
             $this->load->view("mahasiswa/tambah");
@@ -46,9 +46,19 @@ class Mahasiswa extends CI_Controller
         } else {
             $this->Mahasiswa_model->tambahDataMahasiswa();
             // flashdata, session flash dengan isi Ditambahkan
-            $this->session->set_flashdata("flash", "Ditambahkan");
+            $this->session->set_flashdata("flashcreate", "ditambahkan");
             // mengalihkan ke view mahasiswa
             redirect('mahasiswa');
         }
+    }
+
+    // DESTROY || menjalankan query untuk menghapus data per id lalu redirect dengan session, flashdata
+    public function hapus($id)
+    {
+        // memanggil query destroy data per id yang ada pada Mahasiswa_model dengan method hapusDataMahasiswa() dengan parameter $id
+        $this->Mahasiswa_model->hapusDataMahasiswa($id);
+        // redirect dengan session flashdata
+        $this->session->set_flashdata('flashdestroy', 'dihapus');
+        redirect('mahasiswa');
     }
 }
