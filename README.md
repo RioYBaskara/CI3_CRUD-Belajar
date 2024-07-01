@@ -48,5 +48,5 @@ $autoload['helper'] = array('url');
 </IfModule>
 ```
 
-###note
+### note
 * beberapa kode php menggunakan shorthand.
