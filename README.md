@@ -3,9 +3,10 @@
 # CodeIgniter 3.1.9, Bootstrap 4
 
 ### Fitur Proyek
-* Validasi Form, pesan error bahasa indonesia
+* CRUD (On progress)
+* Validasi Form, pesan error berbahasa indonesia
+* flash data
 * ...
-* 
 
 ### Konfigurasi Database
 Nama Database : phpmvc
