@@ -22,6 +22,11 @@ class Mahasiswa extends CI_Controller
         // mengambil semua data melalui model, method/fungsi getAllMahasiswa() || dikirim dengan variabel $mahasiswa melalui $data. di view foreach ($mahasiswa as $mhs):
         $data["mahasiswa"] = $this->Mahasiswa_model->getAllMahasiswa();
 
+        // jika keyword dalam method post ada *dari input index keyword, maka akan menjalankan fungsi cariDataMahasiswa() dari Model Mahasiswa_model
+        if ($this->input->post('keyword')) {
+            $data['mahasiswa'] = $this->Mahasiswa_model->cariDataMahasiswa();
+        }
+
         // load view header, footer, index pada folder mahasiswa dan mengirimkan $data
         $this->load->view("templates/header", $data);
         $this->load->view("mahasiswa/index", $data);
