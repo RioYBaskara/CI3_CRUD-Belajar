@@ -9,8 +9,12 @@ class Peoples_model extends CI_Model
     // }
 
     // fungsi untuk mengambil data dengan aturan pagination, limit dan start, dikirim dalam bentuk array
-    public function getPeoples($limit, $start)
+    public function getPeoples($limit, $start, $keyword = null)
     {
+        if ($keyword) {
+            $this->db->like("name", $keyword);
+            $this->db->or_like("email", $keyword);
+        }
         return $this->db->get("peoples", $limit, $start)->result_array();
     }
 
