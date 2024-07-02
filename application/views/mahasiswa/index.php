@@ -1,3 +1,4 @@
+<!-- <?php var_dump($mahasiswa); ?> -->
 <div class="container">
     <!-- flashdata create -->
     <?php if ($this->session->flashdata('flashcreate')): ?>

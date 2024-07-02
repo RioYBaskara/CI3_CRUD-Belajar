@@ -66,9 +66,36 @@ class Mahasiswa extends CI_Controller
     public function detail($id)
     {
         $data['judul'] = 'Detail Data Mahasiswa';
-        $data['mahasiswa'] = $this->Mahasiswa_model->geMahasiswaById($id);
+        $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswaById($id);
         $this->load->view("templates/header", $data);
         $this->load->view("mahasiswa/detail");
         $this->load->view("templates/footer");
+    }
+
+    // UPDATE || menjalankan fungsi untuk update data per id menggunakan model Mahasiswa_model fungsi ubahDataMahasiswa(), flash data. mengambil data tabel mahasiswa juga dengan getMahasiswaById($id) untuk menampilkan value data pada input form.
+    public function ubah($id)
+    {
+        $data["judul"] = "Form Ubah Data Mahasiswa";
+        $data["mahasiswa"] = $this->Mahasiswa_model->getMahasiswaById($id);
+        // IDE ||| nanti jurusan dibikin tabel sendiri biar bisa nambah jurusan baru pakai crud form
+        $data["jurusan"] = ['Teknik Informatika', 'Teknik Mesin', 'Teknik Planologi', 'Teknik Pangan', 'Teknik Lingkungan'];
+
+        // Rules untuk form_validation
+        $this->form_validation->set_rules("nama", "Nama", "required");
+        $this->form_validation->set_rules("nrp", "NRP", "required|numeric");
+        $this->form_validation->set_rules("email", "Email", "required|valid_email");
+
+        // CREATE || Pengkondisian form_validation, jika input salah, kembali ke view form input. jika input benar, menjalankan query untuk menambahkan data ke tabel mahasiswa lalu redirect dengan session, flashdata
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view("templates/header", $data);
+            $this->load->view("mahasiswa/ubah", $data);
+            $this->load->view("templates/footer");
+        } else {
+            $this->Mahasiswa_model->ubahDataMahasiswa();
+            // flashdata, session flash dengan isi Diubah
+            $this->session->set_flashdata("flashcreate", "diubah");
+            // mengalihkan ke view mahasiswa
+            redirect('mahasiswa');
+        }
     }
 }

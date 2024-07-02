@@ -31,12 +31,27 @@ class Mahasiswa_model extends CI_Model
     }
 
     // Detail Data Tabel Mahasiswa per id/parameter $id
-    public function geMahasiswaById($id)
+    public function getMahasiswaById($id)
     {
         // $this->db->where("id", $id);
         // $this->db->select("mahasiswa");
 
         // query builder untuk select mahasiswa WHERE $id, dikirim dalam bentuk array row
         return $this->db->get_where("mahasiswa", ['id' => $id])->row_array();
+    }
+
+    // Update Data Tabel Mahasiswa per id, dari input hidden form pada view
+    public function ubahDataMahasiswa()
+    {
+        $data = [
+            "nama" => $this->input->post("nama", true),
+            "nrp" => $this->input->post("nrp", true),
+            "email" => $this->input->post("email", true),
+            "jurusan" => $this->input->post("jurusan", true)
+        ];
+
+        // query builder untuk update mahasiswa WHERE $id
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('mahasiswa', $data);
     }
 }
