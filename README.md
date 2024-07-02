@@ -1,11 +1,12 @@
-## CRUD Single Table "Mahasiswa" - Belajar
+## CRUD Tabel "Mahasiswa dan People" - Belajar
 
 # CodeIgniter 3.1.9, Bootstrap 4
 
 ### Fitur Proyek
-* CRUD (On progress)
+* CRUD untuk tabel Mahasiswa
+* Search untuk tabel Mahasiswa
 * Validasi Form, pesan error berbahasa indonesia
-* flash data
+* Pagination untuk Tabel People
 * ...
 
 ### Konfigurasi Database
@@ -18,10 +19,16 @@ Nama Database : phpmvc
 	'dbdriver' => 'mysqli',
 ```
 
+### Tabel
+Mahasiswa
+Peoples
+
 ### Controller
 Mahasiswa.php
+Peoples.php
 
 ### Model
+Peoples_model.php
 Mahasiswa_model.php
 
 ### autoload.php
