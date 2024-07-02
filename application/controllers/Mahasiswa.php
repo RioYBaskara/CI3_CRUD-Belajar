@@ -11,7 +11,7 @@ class Mahasiswa extends CI_Controller
         // load komponen library, form_validation untuk method tambah(create)
         $this->load->library("form_validation");
     }
-    // Method index, menampilkan daftar mahasiswa dari tabel mahasiswa, READ
+    // READ || Menampilkan daftar mahasiswa dari tabel mahasiswa menggunakan Model Mahasiswa_model dan fungsi getAllMahasiswa()
     public function index()
     {
         // load model tapi buat per method aja, ini di index.
@@ -28,7 +28,7 @@ class Mahasiswa extends CI_Controller
         $this->load->view("templates/footer");
     }
 
-    // Method tambah untuk create data mahasiswa, pakai form_validation serta rulenya.
+    // CREATE || Method tambah untuk create data mahasiswa, pakai form_validation serta rulenya. Menggunakan Model Mahasiswa_model tambahDataMahasiswa()
     public function tambah()
     {
         $data["judul"] = "Form Tambah Data Mahasiswa";
@@ -52,7 +52,7 @@ class Mahasiswa extends CI_Controller
         }
     }
 
-    // DESTROY || menjalankan query untuk menghapus data per id lalu redirect dengan session, flashdata
+    // DESTROY || menjalankan fungsi untuk menghapus data per id dari Model Mahasiswa_model hapusDataMahasiswa($id) lalu redirect dengan session, flashdata
     public function hapus($id)
     {
         // memanggil query destroy data per id yang ada pada Mahasiswa_model dengan method hapusDataMahasiswa() dengan parameter $id
@@ -60,5 +60,15 @@ class Mahasiswa extends CI_Controller
         // redirect dengan session flashdata
         $this->session->set_flashdata('flashdestroy', 'dihapus');
         redirect('mahasiswa');
+    }
+
+    // READ || menjalankan fungsi untuk select data per id menggunakan model Mahasiswa_model fungsi getMahasiswaById($id), flashdata
+    public function detail($id)
+    {
+        $data['judul'] = 'Detail Data Mahasiswa';
+        $data['mahasiswa'] = $this->Mahasiswa_model->geMahasiswaById($id);
+        $this->load->view("templates/header", $data);
+        $this->load->view("mahasiswa/detail");
+        $this->load->view("templates/footer");
     }
 }
