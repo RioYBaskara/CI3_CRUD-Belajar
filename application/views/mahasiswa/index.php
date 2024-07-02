@@ -44,6 +44,9 @@
                         <!-- tombol hapus -->
                         <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mhs['id']; ?>"
                             class="badge badge-danger float-right" onclick="return confirm('yakin?');">Hapus</a>
+                        <!-- tombol ubah -->
+                        <a href="<?= base_url(); ?>mahasiswa/ubah/<?= $mhs['id']; ?>"
+                            class="badge badge-success float-right">Ubah</a>
                         <!-- tombol detail -->
                         <a href="<?= base_url(); ?>mahasiswa/detail/<?= $mhs['id']; ?>"
                             class="badge badge-primary float-right">Detail</a>
