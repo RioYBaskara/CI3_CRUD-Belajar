@@ -1,6 +1,6 @@
-## CRUD Tabel "Mahasiswa dan People" - Belajar
+# CodeIgniter3-Belajar
 
-# CodeIgniter 3.1.9, Bootstrap 4
+## CodeIgniter 3.1.9, Bootstrap 4
 
 ### Fitur Proyek
 * CRUD untuk tabel Mahasiswa
