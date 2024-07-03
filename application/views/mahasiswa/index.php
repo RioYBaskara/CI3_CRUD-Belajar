@@ -1,7 +1,8 @@
 <!-- <?php var_dump($mahasiswa); ?> -->
 <div class="container">
+    <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flashcreate') ?>"></div>
     <!-- flashdata create -->
-    <?php if ($this->session->flashdata('flashcreate')): ?>
+    <!-- <?php if ($this->session->flashdata('flashcreate')): ?>
         <div class="row mt-3">
             <div class="col-md-6">
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -11,12 +12,12 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
     <?php endif; ?>
 
     <!-- flashdata destroy -->
     <?php if ($this->session->flashdata('flashdestroy')): ?>
-        <div class="row mt-3">
+        <!-- <div class="row mt-3">
             <div class="col-md-6">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     Data mahasiswa <strong>berhasil</strong> <?= $this->session->flashdata('flashdestroy'); ?>
@@ -25,7 +26,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
     <?php endif; ?>
 
     <div class="row mt-3">
@@ -65,7 +66,7 @@
                         <!-- TOMBOL -->
                         <!-- tombol hapus -->
                         <a href="<?= base_url(); ?>mahasiswa/hapus/<?= $mhs['id']; ?>"
-                            class="badge badge-danger float-right" onclick="return confirm('yakin?');">Hapus</a>
+                            class="badge badge-danger float-right tombol-hapus">Hapus</a>
                         <!-- tombol ubah -->
                         <a href="<?= base_url(); ?>mahasiswa/ubah/<?= $mhs['id']; ?>"
                             class="badge badge-success float-right">Ubah</a>

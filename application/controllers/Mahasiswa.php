@@ -51,7 +51,7 @@ class Mahasiswa extends CI_Controller
         } else {
             $this->Mahasiswa_model->tambahDataMahasiswa();
             // flashdata, session flash dengan isi Ditambahkan
-            $this->session->set_flashdata("flashcreate", "ditambahkan");
+            $this->session->set_flashdata("flashcreate", "Ditambahkan");
             // mengalihkan ke view mahasiswa
             redirect('mahasiswa');
         }
@@ -63,7 +63,7 @@ class Mahasiswa extends CI_Controller
         // memanggil query destroy data per id yang ada pada Mahasiswa_model dengan method hapusDataMahasiswa() dengan parameter $id
         $this->Mahasiswa_model->hapusDataMahasiswa($id);
         // redirect dengan session flashdata
-        $this->session->set_flashdata('flashdestroy', 'dihapus');
+        $this->session->set_flashdata('flashcreate', 'Dihapus');
         redirect('mahasiswa');
     }
 
@@ -98,7 +98,7 @@ class Mahasiswa extends CI_Controller
         } else {
             $this->Mahasiswa_model->ubahDataMahasiswa();
             // flashdata, session flash dengan isi Diubah
-            $this->session->set_flashdata("flashcreate", "diubah");
+            $this->session->set_flashdata("flashcreate", "Diubah");
             // mengalihkan ke view mahasiswa
             redirect('mahasiswa');
         }
