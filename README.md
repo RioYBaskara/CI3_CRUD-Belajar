@@ -17,7 +17,7 @@
 * Jquery3
 
 ### Konfigurasi Database
-Nama Database : phpmvc
+* Nama Database : phpmvc
 ```
 	'hostname' => 'localhost',
 	'username' => 'root',
@@ -27,16 +27,16 @@ Nama Database : phpmvc
 ```
 
 ### Tabel
-Mahasiswa
-Peoples
+* Mahasiswa
+* Peoples
 
 ### Controller
-Mahasiswa.php
-Peoples.php
+* Mahasiswa.php
+* Peoples.php
 
 ### Model
-Peoples_model.php
-Mahasiswa_model.php
+* Peoples_model.php
+* Mahasiswa_model.php
 
 ### autoload.php
 * libraries : database, session
@@ -53,7 +53,7 @@ $autoload['helper'] = array('url');
 * $config['index_page'] = ''; 
 
 ### pagination.php
-konfigurasi pagination, serta styling menggunakna bootstrap4
+* konfigurasi pagination, serta styling menggunakna bootstrap4
 ```
 <?php
 //Konfigurasi Pagination
